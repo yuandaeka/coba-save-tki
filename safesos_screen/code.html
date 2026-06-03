@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sos-pulse {
+            box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .sos-active-ring {
+            border: 8px solid rgba(255, 218, 214, 0.4);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-fixed-variant": "#004395",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "on-secondary-fixed-variant": "#005048",
+                      "surface-tint": "#565e74",
+                      "tertiary-container": "#001a42",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container": "#e5eeff",
+                      "surface-container-highest": "#d3e4fe",
+                      "secondary-fixed": "#71f8e4",
+                      "on-secondary-fixed": "#00201c",
+                      "tertiary": "#000000",
+                      "inverse-surface": "#213145",
+                      "outline-variant": "#c6c6cd",
+                      "secondary-container": "#6df5e1",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-low": "#eff4ff",
+                      "on-tertiary-container": "#3980f4",
+                      "on-surface-variant": "#45464d",
+                      "on-error-container": "#93000a",
+                      "on-error": "#ffffff",
+                      "on-surface": "#0b1c30",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#001a42",
+                      "primary-container": "#131b2e",
+                      "surface-dim": "#cbdbf5",
+                      "inverse-on-surface": "#eaf1ff",
+                      "outline": "#76777d",
+                      "background": "#f8f9ff",
+                      "primary-fixed": "#dae2fd",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#006b5f",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#0b1c30",
+                      "on-primary-container": "#7c839b",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-primary-fixed": "#131b2e",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-secondary-container": "#006f64",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "primary": "#000000",
+                      "tertiary-fixed": "#d8e2ff",
+                      "surface-container-high": "#dce9ff",
+                      "surface-variant": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-lg": "2rem",
+                      "stack-sm": "0.5rem",
+                      "container-margin": "1.5rem",
+                      "stack-md": "1rem",
+                      "gutter": "1rem"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-bright dark:bg-primary-container shadow-sm flex items-center justify-between px-container-margin py-stack-sm h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an Indonesian migrant worker, appearing confident and friendly. The portrait is set against a clean, softly lit studio background with a warm, natural lighting scheme that complements the high-end institutional UI. The image is framed within a perfect circle, emphasizing its role as a secure user profile identity icon in a modern corporate mobile application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbYNZZkH4eI5yF9JgUOz4mR90vFAtbOosOhT9NlTEU1erO9Cc6WjDy1T87OITqj8D_gSR2nmH2m79DtwPMmRxEdmXwsqtm9NDCAC9vW2Y5dGlZcTBrwzZoXVanmyqGLClHdan3ui1QbS4PTqqnBI-mvenML80AeD8HU6xHIVQrPHcGGUvSPCT2OOMRJDyFLlWJghhqDOZt8pck0GVqtyxlEfp7w2Wt1URWfkuXVPumhM9QIpeDZ4Yt7wpInUJoPbDu7AG8vSNVi8w0">
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface">SOS</h1>
+</div>
+<div class="flex items-center">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors duration-200 text-on-surface">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-container-margin py-stack-lg space-y-12">
+<!-- Background Decorative Element (Safe Zone Aesthetic) -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden -z-10">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-auto opacity-5">
+<img alt="SOS Protection Shield" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3muwPvVnHXq6gNRNS3g5OBadLzsaMYqBzcGm4A53GsWG54OQEJHbifCc14Xu3pR4gMKVtPRQcFuUpR80Jft9dJ_hLGyEkKdjfPuwtzVj81kBZugEQLbi849ciN2nN_0Q2l5YY6geFaqHss8qQRbQ0AgcWBy9mRxUefTOOEC1CWnSaFJ2qMviX_QZQl1dyxOyO3ncPTgOYFIy9VoxykyPOejZYrKan8RPKIfeqXIEDLqpF6vOopwVuewux_OdiveAbE6entBknbgUp">
+</div>
+</div>
+<!-- SOS Central Component -->
+<div class="flex flex-col items-center space-y-stack-lg w-full max-w-md text-center">
+<!-- Large SOS Button -->
+<div class="relative group">
+<!-- Outer Pulse Effect Rings -->
+<div class="absolute -inset-8 bg-error/10 rounded-full animate-ping opacity-20"></div>
+<div class="absolute -inset-4 bg-error/20 rounded-full animate-pulse opacity-40"></div>
+<button class="relative z-10 w-64 h-64 bg-error rounded-full flex flex-col items-center justify-center shadow-xl transform active:scale-90 transition-all duration-150 sos-pulse border-8 border-white">
+<span class="material-symbols-outlined text-[96px] text-white" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-headline-lg text-headline-lg text-white mt-2 tracking-widest">SOS</span>
+</button>
+</div>
+<!-- Instruction Text -->
+<div class="space-y-4 px-4">
+<p class="font-headline-sm text-headline-sm text-on-surface leading-tight">
+                    Pencet tombol SOS ketika dalam keadaan darurat
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto">
+                    Bantuan akan segera dikirimkan ke lokasi Anda saat ini secara otomatis.
+                </p>
+<a class="inline-block font-label-md text-label-md text-on-tertiary-container hover:underline mt-stack-md" href="#">
+                    pelajari selengkapnya
+                </a>
+</div>
+</div>
+<!-- Security Context Cards (Asymmetric Bento Style) -->
+<div class="grid grid-cols-2 gap-4 w-full max-w-lg mt-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant col-span-2 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Lokasi Terpantau</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">GPS Aktif: Kuala Lumpur, Malaysia</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="font-label-md text-label-md">Kontak Darurat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 Terdaftar</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-outline-variant flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary">security</span>
+<span class="font-label-md text-label-md">Satgas KBRI</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Siaga 24/7</span>
+</div>
+</div>
+</main>
+<!-- Spacer for Bottom Nav -->
+<div class="h-24"></div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-primary-container dark:bg-primary-container shadow-lg flex justify-around items-end pb-4 pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Edu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">Tanya AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Kerja</span>
+</a>
+<!-- SOS Active Tab -->
+<a class="flex flex-col items-center justify-center text-secondary-fixed dark:text-secondary-fixed-dim font-bold transition-transform duration-150 scale-100 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+<span class="font-label-sm text-label-sm">SOS</span>
+</a>
+</nav>
+</body></html>

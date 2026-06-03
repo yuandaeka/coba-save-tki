@@ -1,0 +1,248 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-tint": "#565e74",
+                        "tertiary-container": "#001a42",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed": "#71f8e4",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#213145",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-container": "#6df5e1",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#3980f4",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a42",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline": "#76777d",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006b5f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-variant": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "container-margin": "1.5rem",
+                        "stack-md": "1rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface-bright shadow-sm flex items-center justify-between px-container-margin py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest border-2 border-secondary-container">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a friendly Indonesian man in his 30s, dressed in a neat business-casual shirt. He has a warm smile and approachable demeanor. The background is a soft, blurred office interior with clean, modern aesthetics, primarily using a palette of soft whites and deep navy blues to convey institutional trust and personal safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0qrM7nuwLCl9EkAYyERghL7j4aq8c1Vys9rBVFLNPsBsGW-Clt9rDGLGW9_PGAiNTP0kD9XoYB1MsG_S3lC7wkn5uyP6_O5vDqWLTKn2Kat2ylPFXz88jnyhcAA12gQBIn0Scwr8Od9sAl31MAaZNZFUFLdd2mZPNC3UHgsG_v40D2G4Gkc6zeC6NLSReGZgkJU9vt8ik6GaDbIu0aj3aoFhd0OI7ljCngHLVOWr-56BR7JfDx6wmT7YhiRc2rLBkON2QDz6RTzCF">
+</div>
+<h1 class="font-headline-md text-headline-md text-secondary font-bold">EduPrep</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface transition-colors duration-200 hover:bg-surface-container-low p-2 rounded-full">notifications</button>
+</div>
+</header>
+<main class="px-container-margin py-stack-lg mb-24">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<div class="relative w-full h-48 rounded-xl overflow-hidden shadow-md">
+<img alt="EduPrep Banner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlDbgaicb2zsWSQYdyDhN06CRV46T1OLGH_5O-VJmtFTWf5sfsU8A9m38cRs1BHBT59wgAHoc2Gc_1zABdr5UdrlUZlt1nU0gmHPx7Lf8dGsQTFfBIpRD58TisJaEjVeuSuSB-r0YwC62hmMvCpT02P6gshhbkP0TgbU1ikSR6akrxDLlvBEb-wTl-GtOBo9dTMm5O4kJFgBuzxn50lNtUr7eHXAxVfzkbvmLXAD2epIsHacsJuzcrpSb4qeq3SpOwOu_kc8-6rGl8">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/90 to-transparent flex flex-col justify-center px-6">
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-3 py-1 rounded-full w-fit mb-2">Program Unggulan</span>
+<h2 class="font-headline-sm text-headline-sm text-surface-bright leading-tight max-w-[200px]">Siapkan Diri, Amankan Masa Depan</h2>
+</div>
+</div>
+</section>
+<!-- Educational Cards List -->
+<div class="space-y-gutter">
+<!-- Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex h-40 transition-transform active:scale-[0.98]">
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h3 class="font-headline-sm text-label-md text-on-surface mb-1">Literasi Hukum dan Perlindungan</h3>
+<p class="font-body-sm text-label-sm text-outline leading-snug">Memahami Hukum dan Hak Asasi Migran secara menyeluruh.</p>
+<div class="mt-3 flex items-center text-secondary font-label-sm text-label-sm">
+<span>Pelajari Sekarang</span>
+<span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="w-1/3 bg-surface-container-highest relative overflow-hidden">
+<img alt="Law and Rights" class="w-full h-full object-cover" data-alt="A detailed conceptual image representing law and justice, featuring a golden scale of justice and a legal gavel resting on a polished mahogany surface. The lighting is dramatic and dignified, with deep blue shadows and soft amber highlights. The overall aesthetic is authoritative, clean, and institutional, conveying a sense of legal protection and absolute reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz4_JAAsFGj7DiOaGs3kBt_DiKirBNDj_DwagFcFQusIHpSf9ms-Ym0W-kBYw02Msw4doopkBcjJ8am4P4RL8kPReejLfNfdLK09HF2EDAjhVsesLbo4qP0i68qduuShmj837x83ffZMpbVmXX3KbwydJTHG5jlkGYDPbmlU_3orVkkprhdgCUnebX4LeWaxEVq_4rLtguyRP0K4ewZJtpaUd_jkz8Dt-schQDmqLOTqcPwzdNNd3-Hv6JChvoqz6NA4PW88YL-6NP">
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex h-40 transition-transform active:scale-[0.98]">
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h3 class="font-headline-sm text-label-md text-on-surface mb-1">Kesiapan Profesional dan Teknis</h3>
+<p class="font-body-sm text-label-sm text-outline leading-snug">Standarisasi keahlian untuk standar kerja internasional.</p>
+<div class="mt-3 flex items-center text-secondary font-label-sm text-label-sm">
+<span>Lihat Modul</span>
+<span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="w-1/3 bg-surface-container-highest relative overflow-hidden">
+<img alt="Professional Readiness" class="w-full h-full object-cover" data-alt="A modern industrial setting showing a pair of skilled hands operating a high-tech control panel with digital displays. The environment is clean, brightly lit with neutral daylight, and features a palette of industrial grays and vibrant teal accents. The visual style is crisp and professional, emphasizing technical precision, efficiency, and modern vocational training standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGUQbrsvzF_J5GQRCrO41aMgyeswD9wWgdt8weu2wkPrvWEQIYqPKwQI9vYcn1_rQ_FAw2BFMzJllpz4oZUCJt6Ns5CRwQ8Hr-s5UKmgVMT9s-ghfoo0hRES6iavsuvNnEUn3gtQb9hwyLmVUSSYFiyWlYhNXdDBc4ZeiGmc8bahb5siXt67uO4gqFeurgsGKlCqwrK0XEB03OYDKdIRPPuvk3Lqhcxr_aQFi25vXYWP3IjAKv2XIzbww5otOhD_dXDG-IY_7Dvwp0">
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex h-40 transition-transform active:scale-[0.98]">
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h3 class="font-headline-sm text-label-md text-on-surface mb-1">Kesiapan Adaptasi Sosial dan Budaya</h3>
+<p class="font-body-sm text-label-sm text-outline leading-snug">Navigasi etika dan budaya lokal di negara tujuan.</p>
+<div class="mt-3 flex items-center text-secondary font-label-sm text-label-sm">
+<span>Eksplorasi</span>
+<span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="w-1/3 bg-surface-container-highest relative overflow-hidden">
+<img alt="Social Adaptation" class="w-full h-full object-cover" data-alt="A diverse group of people from different cultural backgrounds engaged in a friendly, respectful conversation in a vibrant public park. The setting is bright and airy with warm, golden hour sunlight filtering through lush green leaves. The mood is empathetic and harmonious, using a joyful palette of teals and soft neutrals to represent social integration and cultural understanding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVAGMroq_YBhSBphTzTwAL1NqX9ZsZmfif-apRRHe-er2gKYq8C2kA6zeresNzEf0Lz58vmJPd2XFj7jkXsBtbJ7QbrLKcVOcdne89UO6YvrlliXW3cWqOwisRf-B_lsMD2j44G9UCWdj8hhxc67LQVoDa73OBNIeoF9yO84ZLf7pSFlBkcWrAIoRtLlpJohteRWQIUqK2_2VaOy-72f8fqTrJ4Moy93DxYDTxjMnnJxwKbdRxF6NqynuqV0xMhdo6jznkEm0InkCH">
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex h-40 transition-transform active:scale-[0.98]">
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h3 class="font-headline-sm text-label-md text-on-surface mb-1">Literasi Digital dan Keamanan Data</h3>
+<p class="font-body-sm text-label-sm text-outline leading-snug">Melindungi identitas digital dan data pribadi Anda.</p>
+<div class="mt-3 flex items-center text-secondary font-label-sm text-label-sm">
+<span>Amankan Data</span>
+<span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="w-1/3 bg-surface-container-highest relative overflow-hidden">
+<img alt="Digital Literacy" class="w-full h-full object-cover" data-alt="A stylized close-up of a smartphone screen showing high-tech security authentication symbols like a fingerprint and a padlock icon. The lighting is cool-toned with glowing neon blue and deep navy gradients. The aesthetic is futuristic and high-security, communicating technological sophistication and the absolute protection of digital assets and privacy for the user." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALcLiptBVL36_m884NzEpnGJLg19MnDqjBoxuBY0wQBm98yQ2FyUnTSPE3xNwSMiIu3nhC34uclJKVEyGdVI1rUyaR200Lm823EwNTGLV1uYMRlVcVIJofgIhmj2sE6CwfEtOkMPNEwrJ0fXtKCYbBMLP4EAmInhLL2GNlxnUrXJQEhiB-5XRspMq11nmm67W3tDI1JMAObUv8z3UrIIlvptrZZtJU0hkT7o8WuledmYxTNgj_LAs18F9xujFcrRfKcy6vZ7nDmI0n">
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm flex h-40 transition-transform active:scale-[0.98]">
+<div class="flex-1 p-4 flex flex-col justify-center">
+<h3 class="font-headline-sm text-label-md text-on-surface mb-1">Literasi Keuangan dan Perlindungan Ekonomi</h3>
+<p class="font-body-sm text-label-sm text-outline leading-snug">Kelola penghasilan dan investasi untuk keluarga.</p>
+<div class="mt-3 flex items-center text-secondary font-label-sm text-label-sm">
+<span>Mulai Menabung</span>
+<span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="w-1/3 bg-surface-container-highest relative overflow-hidden">
+<img alt="Financial Literacy" class="w-full h-full object-cover" data-alt="An organized workspace showing a digital tablet with clear financial growth charts, a clean notebook, and a modern pen. The lighting is bright and professional, utilizing a corporate light-mode theme with crisp whites, deep navy lines, and energetic teal accents on the graphs. The mood is one of stability, success, and organized financial planning for a secure future." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVNpHOZJjOZAKt0oj8vDwnc4GLGqDUYl80imjm6lNdXXGF5ao10MfOuY8fSoDSCLXc7WEwYTXKwVNGoi50QnFlPB-iN-9PE7ZEa8bnEcGyD-RyXwCt_1MIK4eyTeJNrpYQga6FuaojXj-LYOjNfjj2QQxZMaZgTR0ikDdljtQsuK0DzqA-A-_kdMaz6DIL5q5FPfrW8dqjga-7Jv8InREybORdmD_wkiHikpbvMjwc9eWQ_LpblIXESNANteWNk_VAUHqwVskNhlBG">
+</div>
+</div>
+</div>
+<!-- Extra Content: Progress Tracker -->
+<section class="mt-stack-lg p-5 bg-primary-container rounded-2xl shadow-lg border-l-4 border-secondary-fixed">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-headline-sm text-label-md text-surface-bright">Progres Belajar Anda</h4>
+<span class="text-secondary-fixed font-bold">40%</span>
+</div>
+<div class="w-full bg-on-primary-fixed-variant rounded-full h-2 mb-4">
+<div class="bg-secondary-fixed h-2 rounded-full" style="width: 40%"></div>
+</div>
+<p class="font-body-sm text-label-sm text-on-primary-container">Selesaikan 3 modul lagi untuk mendapatkan sertifikat persiapan kerja.</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-primary-container shadow-lg flex justify-around items-end pb-4 pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-on-primary-container opacity-70 hover:opacity-100 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed font-bold scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm">Edu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container opacity-70 hover:opacity-100 scale-95 active:scale-90 transition-transform duration-150 -mt-6" href="#">
+<div class="bg-secondary text-surface w-14 h-14 rounded-full flex items-center justify-center shadow-lg mb-1 border-4 border-primary-container">
+<span class="material-symbols-outlined text-[32px]">smart_toy</span>
+</div>
+<span class="font-label-sm text-label-sm">Tanya AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container opacity-70 hover:opacity-100 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Kerja</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container opacity-70 hover:opacity-100 scale-95 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-error-container">emergency_home</span>
+<span class="font-label-sm text-label-sm">SOS</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#adc6ff",
+                    "on-secondary-fixed-variant": "#005048",
+                    "surface-tint": "#565e74",
+                    "tertiary-container": "#001a42",
+                    "inverse-primary": "#bec6e0",
+                    "surface-container": "#e5eeff",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#71f8e4",
+                    "on-secondary-fixed": "#00201c",
+                    "tertiary": "#000000",
+                    "inverse-surface": "#213145",
+                    "outline-variant": "#c6c6cd",
+                    "secondary-container": "#6df5e1",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-container": "#3980f4",
+                    "on-surface-variant": "#45464d",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#001a42",
+                    "primary-container": "#131b2e",
+                    "surface-dim": "#cbdbf5",
+                    "inverse-on-surface": "#eaf1ff",
+                    "outline": "#76777d",
+                    "background": "#f8f9ff",
+                    "primary-fixed": "#dae2fd",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#006b5f",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-primary-container": "#7c839b",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-primary-fixed": "#131b2e",
+                    "secondary-fixed-dim": "#4fdbc8",
+                    "on-secondary-container": "#006f64",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "primary": "#000000",
+                    "tertiary-fixed": "#d8e2ff",
+                    "surface-container-high": "#dce9ff",
+                    "surface-variant": "#d3e4fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "2rem",
+                    "stack-sm": "0.5rem",
+                    "container-margin": "1.5rem",
+                    "stack-md": "1rem",
+                    "gutter": "1rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .camera-overlay {
+            background: linear-gradient(rgba(11, 28, 48, 0.8), rgba(11, 28, 48, 0.8));
+            clip-path: polygon(
+                0% 0%, 0% 100%, 
+                5% 100%, 5% 30%, 95% 30%, 95% 70%, 5% 70%, 5% 100%, 
+                100% 100%, 100% 0%
+            );
+        }
+        .ktp-frame {
+            border: 2px dashed rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar Section -->
+<header class="w-full top-0 sticky z-50 bg-surface-bright dark:bg-primary-container shadow-sm flex items-center justify-between px-container-margin py-stack-sm h-16">
+<div class="flex items-center gap-4">
+<button class="text-on-surface dark:text-on-primary-fixed hover:bg-surface-container-low p-2 rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface dark:text-on-primary-fixed">Verifikasi Identitas</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant">notifications</span>
+</div>
+</header>
+<main class="flex-1 flex flex-col px-container-margin pt-stack-md pb-stack-lg">
+<!-- Progress Bar Section -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-2">
+<p class="font-label-md text-label-md text-on-surface">Langkah 3 Verifikasi NIK</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">3/8 langkah</p>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[37.5%]"></div>
+</div>
+</section>
+<!-- Camera View Area (Simulation) -->
+<section class="flex-1 relative rounded-xl overflow-hidden bg-primary-container shadow-lg flex flex-col items-center justify-center min-h-[400px]">
+<!-- Visual Background Prompting for AI (Hidden) -->
+<div class="absolute inset-0 z-0">
+<img alt="Verification background" class="w-full h-full object-cover opacity-20 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzrLumghj1JAWLmE3sbEIgQzmbRgY_bb_vJdUyXl5adlBbyyaCV9UtyaCB92tPjAMSTPGk-Qs3438TMfm_6d-Nlb-zeyhDQwvXz9UR25yZOMXglaHmmNa3CZLQel39CisGmyWJa7_nLa6v30my4iOPy7pSsSCMTrGArKG55V9oZa1NrWPlMg0t1XPgcBj9grAynBClH4N7X8QQ_mVCo-TBr_HOgNCn-8eNyqZgDe4biHlhCrIw2D4EXjhJrWRNUaytV96hcHjM9rfW">
+</div>
+<!-- Viewfinder Labels -->
+<div class="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-white font-label-sm text-label-sm uppercase tracking-wider">Kamera</span>
+</div>
+<!-- Frame Center -->
+<div class="relative z-10 w-full px-6 flex flex-col items-center">
+<div class="w-full aspect-[1.58/1] ktp-frame rounded-lg flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl mb-4 opacity-80" style="font-variation-settings: 'opsz' 48">badge</span>
+<p class="text-white font-headline-sm text-headline-sm">Foto KTP</p>
+<p class="text-white/60 font-body-sm text-body-sm mt-2 px-8 text-center">Pastikan seluruh bagian KTP berada di dalam kotak dan terbaca jelas</p>
+</div>
+</div>
+<!-- Guidelines Overlay -->
+<div class="absolute bottom-6 left-6 right-6 z-20">
+<div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">info</span>
+<p class="text-white font-body-sm text-body-sm">Hindari pantulan cahaya dan pastikan kartu identitas asli, bukan fotokopi.</p>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<section class="mt-stack-lg flex flex-col gap-4">
+<button class="w-full bg-secondary text-on-secondary py-4 px-6 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 shadow-md hover:bg-on-secondary-container active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined">photo_camera</span>
+                Ambil Foto
+            </button>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant px-8">
+                Data Anda aman dan terenkripsi sesuai standar keamanan pemerintah.
+            </p>
+</section>
+</main>
+<!-- BottomNavBar Section - Suppressed per 'Task-Focused' rule, but keeping structure as guide -->
+<!-- Hidden on verification flow to prioritize content canvas -->
+<!-- Manual Spacer for Safety -->
+<div class="h-4"></div>
+</body></html>

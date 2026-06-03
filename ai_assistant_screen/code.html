@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-tint": "#565e74",
+                        "tertiary-container": "#001a42",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed": "#71f8e4",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#213145",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-container": "#6df5e1",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#3980f4",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a42",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline": "#76777d",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006b5f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-variant": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "container-margin": "1.5rem",
+                        "stack-md": "1rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+    <!-- TopAppBar -->
+    <header
+        class="w-full top-0 sticky z-50 bg-surface-bright dark:bg-primary-container shadow-sm flex items-center justify-between px-container-margin py-stack-sm">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+                <img alt="Profile photo" class="w-full h-full object-cover"
+                    data-alt="A professional close-up portrait of a friendly Indonesian man in his 30s, smiling warmly. He is wearing a clean, modern white shirt. The background is a soft, out-of-focus modern office setting with warm daylight. The overall lighting is bright and high-key, aligning with a light-mode UI aesthetic of trust and accessibility."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDza2BrhfWYJNOh4iiDkOscnUsc7mIMUpALV-qHReADQAoEGjX7z7YLckep6QA9Uy6ieu6LhfyH03T3uo5dggIEhrkuYB2Zo1LoK2XMyvF7mT9xajxzsN3-PoshB_8n9OhcjDSkuKiEJtJH3OlD3sw1cK_CwpDc5Pa5Xg0oEt8FadrsCJldWeN1hBi2KTC5YrXdT0_1sCTcw00g1SgjvJ5hJydIEWf5PU6gNjpL18ZIpWiAOuRfBK_C81iHMVegme0IfDv0IwOok80">
+            </div>
+            <h1 class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed-dim font-bold">SafeTKI
+            </h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <button
+                class="material-symbols-outlined text-on-surface dark:text-on-primary-fixed hover:bg-surface-container-low dark:hover:bg-primary-fixed-variant p-2 rounded-full transition-colors duration-200">
+                notifications
+            </button>
+        </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col items-center justify-center px-container-margin pb-32 pt-8">
+        <!-- AI Assistant Headline -->
+        <div class="text-center mb-stack-lg">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">AI Assistant</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto">
+                Halo! Saya asisten pintar SafeTKI. Ada yang bisa saya bantu hari ini?
+            </p>
+        </div>
+        <!-- Robot Visual / Hero -->
+        <div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+            <div class="absolute inset-0 bg-secondary-container opacity-20 rounded-full blur-3xl animate-pulse"></div>
+
+        </div>
+        <!-- Quick Suggestions (Bento Style) -->
+        <div class="w-full max-w-md mt-stack-lg grid grid-cols-2 gap-stack-sm">
+            <button
+                class="p-4 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col items-start gap-2 hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-secondary">gavel</span>
+                <span class="font-label-md text-label-md text-on-surface text-left">Bantuan Hukum</span>
+            </button>
+            <button
+                class="p-4 bg-surface-container-lowest border border-outline-variant rounded-xl flex flex-col items-start gap-2 hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-secondary">payments</span>
+                <span class="font-label-md text-label-md text-on-surface text-left">Info Gaji &amp; Kirim</span>
+            </button>
+        </div>
+    </main>
+    <!-- Floating Chat Input Wrapper -->
+    <div class="fixed bottom-24 left-0 w-full px-container-margin z-40">
+        <div class="max-w-md mx-auto relative group">
+            <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline">smart_toy</span>
+            </div>
+            <input
+                class="w-full bg-surface-container-lowest border-outline-variant border py-4 pl-12 pr-14 rounded-full shadow-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none font-body-md text-body-md text-on-surface placeholder:text-outline"
+                placeholder="Tanyakan apa saja" type="text">
+            <button
+                class="absolute inset-y-2 right-2 w-10 h-10 bg-secondary text-on-secondary rounded-full flex items-center justify-center hover:opacity-90 transition-opacity">
+                <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">mic</span>
+            </button>
+        </div>
+    </div>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 w-full z-50 rounded-t-xl bg-primary-container dark:bg-primary-container shadow-lg flex justify-around items-end pb-4 pt-2 px-2">
+        <!-- Beranda -->
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-sm text-label-sm">Beranda</span>
+        </a>
+        <!-- Edu -->
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">school</span>
+            <span class="font-label-sm text-label-sm">Edu</span>
+        </a>
+        <!-- Tanya AI (ACTIVE) -->
+        <a class="flex flex-col items-center justify-center text-secondary-fixed dark:text-secondary-fixed-dim font-bold transition-transform duration-150 scale-95 active:scale-90"
+            href="#">
+            <div class="bg-secondary-container/10 p-1 rounded-lg mb-1">
+                <span class="material-symbols-outlined"
+                    style="font-variation-settings: &quot;FILL&quot; 1;">smart_toy</span>
+            </div>
+            <span class="font-label-sm text-label-sm">Tanya AI</span>
+        </a>
+        <!-- Kerja -->
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">work</span>
+            <span class="font-label-sm text-label-sm">Kerja</span>
+        </a>
+        <!-- SOS -->
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 hover:opacity-100 transition-transform duration-150 scale-95 active:scale-90"
+            href="#">
+            <div class="bg-error rounded-full p-2 mb-1 shadow-md">
+                <span class="material-symbols-outlined text-white"
+                    style="font-variation-settings: &quot;FILL&quot; 1;">emergency_home</span>
+            </div>
+            <span class="font-label-sm text-label-sm">SOS</span>
+        </a>
+    </nav>
+
+
+</body>
+
+</html>

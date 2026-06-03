@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#005048",
+                        "surface-tint": "#565e74",
+                        "tertiary-container": "#001a42",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed": "#71f8e4",
+                        "on-secondary-fixed": "#00201c",
+                        "tertiary": "#000000",
+                        "inverse-surface": "#213145",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-container": "#6df5e1",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-container": "#3980f4",
+                        "on-surface-variant": "#45464d",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a42",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline": "#76777d",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006b5f",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-secondary-container": "#006f64",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-variant": "#d3e4fe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "2rem",
+                        "stack-sm": "0.5rem",
+                        "container-margin": "1.5rem",
+                        "stack-md": "1rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .safe-bottom-padding {
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body class="font-body-md text-body-md">
+    <!-- TopAppBar -->
+    <header
+        class="w-full top-0 sticky z-40 bg-surface-bright dark:bg-primary-container text-on-surface dark:text-on-primary-fixed shadow-sm flex items-center justify-between px-container-margin py-stack-sm">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-secondary-container">
+                <img alt="User profile photo" class="w-full h-full object-cover"
+                    data-alt="A professional headshot of a middle-aged Indonesian man with a friendly and trustworthy expression. He is wearing a clean, modern white collared shirt against a soft, blurred corporate office background. The lighting is bright and optimistic, matching the high-key, secure light-mode aesthetic of a modern financial and legal services application."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd">
+            </div>
+            <h1 class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed-dim font-bold">BlockID
+            </h1>
+        </div>
+        <button
+            class="material-symbols-outlined p-2 hover:bg-surface-container-low dark:hover:bg-primary-fixed-variant rounded-full transition-colors duration-200">
+            notifications
+        </button>
+    </header>
+    <main class="px-container-margin py-stack-md safe-bottom-padding">
+        <!-- Feature Card: Bento Hero -->
+        <section class="mb-stack-lg">
+            <div
+                class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary-fixed p-6 shadow-lg min-h-[180px] flex items-center">
+                <div class="z-10 w-2/3">
+                    <p class="font-label-sm text-label-sm text-secondary-fixed mb-2 uppercase tracking-wider">Feature
+                        Highlight</p>
+                    <h2 class="font-headline-sm text-headline-sm text-white mb-4 leading-tight">Siap Kerja, Siap Hukum,
+                        Siap Beradaptasi dengan SafeTKI</h2>
+                    <button
+                        class="bg-secondary text-white px-4 py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-secondary-fixed hover:text-on-secondary transition-all">
+                        Daftar Sekarang <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                    </button>
+                </div>
+                <div class="absolute right-[-20px] bottom-[-20px] opacity-40">
+                    <span
+                        class="material-symbols-outlined text-[180px] text-secondary-fixed opacity-20">shield_person</span>
+                </div>
+            </div>
+        </section>
+        <!-- Section Title & Action -->
+        <section class="flex items-center justify-between mb-stack-md">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Pengajuan Permohonan dan Status</h3>
+        </section>
+        <!-- FAB Style Button -->
+        <div class="mb-stack-lg">
+            <button
+                class="w-full bg-secondary-container text-on-secondary-container py-4 px-6 rounded-xl font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-transform active:scale-95">
+                <span class="material-symbols-outlined">add_circle</span>
+                Pengajuan Permohonan
+            </button>
+        </div>
+        <!-- ID Card Section (Mimicking IMAGE_4) -->
+        <section class="mb-stack-lg">
+            <div class="bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant overflow-hidden">
+                <div class="p-6 bg-secondary text-white flex justify-between items-center">
+                    <div>
+                        <h4 class="font-headline-sm text-headline-sm leading-none">Syaban Ahmad</h4>
+                        <p class="font-label-sm text-label-sm opacity-80 mt-1">Status: <span
+                                class="bg-white text-secondary px-2 py-0.5 rounded-full font-bold">Belum
+                                Tervalidasi</span></p>
+                    </div>
+                    <span class="material-symbols-outlined text-4xl">fingerprint</span>
+                </div>
+                <div class="p-6 grid grid-cols-1 gap-y-4">
+                    <div class="flex flex-col">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase">NIK</span>
+                        <span class="text-on-surface font-body-md text-body-md font-semibold">3201234567890001</span>
+                    </div>
+                    <div class="flex flex-col border-t border-surface-container pt-3">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase">No. Paspor</span>
+                        <span class="text-on-surface font-body-md text-body-md font-semibold">A 1234567</span>
+                    </div>
+                    <div class="flex flex-col border-t border-surface-container pt-3">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase">Tempat Tanggal
+                            Lahir</span>
+                        <span class="text-on-surface font-body-md text-body-md font-semibold">Jakarta, 12 Mei
+                            1990</span>
+                    </div>
+                    <div class="flex flex-col border-t border-surface-container pt-3">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase">Alamat
+                            Domisili</span>
+                        <span class="text-on-surface font-body-sm text-body-sm">Jl. Melati No. 45, Kebayoran Baru,
+                            Jakarta Selatan, 12150</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6 pt-2">
+                    <div class="bg-surface-container-low rounded-lg p-3 flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-white rounded-md flex items-center justify-center border border-outline-variant">
+                            <span class="material-symbols-outlined text-secondary">qr_code_2</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-label-sm text-label-sm text-on-surface-variant">Tunjukkan kode QR ini untuk
+                                verifikasi data instansi pemerintah terkait.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BlockID Visual Placeholder (Referencing IMAGE_4) -->
+        <section
+            class="flex flex-col items-center justify-center p-8 bg-surface-container-low rounded-2xl border-2 border-dashed border-outline-variant mb-stack-lg">
+            <div class="max-w-[200px] shadow-2xl rounded-3xl overflow-hidden mb-4">
+
+            </div>
+            <p class="font-label-sm text-label-sm text-on-surface-variant text-center max-w-[240px]">Preview Tampilan
+                Kartu Identitas Digital SafeTKI untuk Keperluan Hukum.</p>
+        </section>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 w-full z-50 rounded-t-xl bg-primary-container dark:bg-primary-container shadow-lg flex justify-around items-end pb-4 pt-2 px-2 w-full">
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 font-label-sm text-label-sm hover:opacity-100 transition-transform duration-150 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">home</span>
+            <span class="">Beranda</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 font-label-sm text-label-sm hover:opacity-100 transition-transform duration-150 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">school</span>
+            <span class="">Edu</span>
+        </a>
+        <!-- Active Tab: Tanya AI -->
+        <a class="flex flex-col items-center justify-center text-secondary-fixed dark:text-secondary-fixed-dim font-bold font-label-sm text-label-sm transition-transform duration-150 scale-105"
+            href="#">
+            <span class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1;">smart_toy</span>
+            <span class="">Tanya AI</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 font-label-sm text-label-sm hover:opacity-100 transition-transform duration-150 active:scale-90"
+            href="#">
+            <span class="material-symbols-outlined">work</span>
+            <span class="">Kerja</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-on-primary-container dark:text-on-primary-fixed-variant opacity-70 font-label-sm text-label-sm hover:opacity-100 transition-transform duration-150 active:scale-90"
+            href="#">
+            <div class="bg-error w-10 h-10 rounded-full flex items-center justify-center mb-1 shadow-lg">
+                <span class="material-symbols-outlined text-white"
+                    style="font-variation-settings: &quot;FILL&quot; 1;">emergency_home</span>
+            </div>
+            <span class="">SOS</span>
+        </a>
+    </nav>
+
+
+</body>
+
+</html>
