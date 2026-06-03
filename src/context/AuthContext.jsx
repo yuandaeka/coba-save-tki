@@ -1,6 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { auth, googleProvider } from './FirebaseConfig';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { 
+  onAuthStateChanged, 
+  signOut, 
+  signInWithPopup, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  updateProfile 
+} from 'firebase/auth';
 
 const AuthContext = createContext();
 
@@ -21,18 +28,81 @@ export const AuthProvider = ({ children }) => {
 
   const loginWithGoogle = async () => {
     try {
-      // Mock login to bypass Firebase block in simulator
-      const mockUser = {
-        uid: "mock-123",
-        displayName: "Syaban Ahmad",
-        email: "syaban@gmail.com",
-        photoURL: "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
-      };
-      setCurrentUser(mockUser);
-      return mockUser;
+      const result = await signInWithPopup(auth, googleProvider);
+      setCurrentUser(result.user);
+      
+      // Auto enroll in biometrics after a successful Google login
+      localStorage.setItem('hasBiometric', 'true');
+      localStorage.setItem('biometricUser', JSON.stringify({
+        uid: result.user.uid,
+        displayName: result.user.displayName || result.user.email,
+        email: result.user.email,
+        photoURL: result.user.photoURL || "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
+      }));
+      
+      return result.user;
     } catch (error) {
-      console.error("Mock login error: ", error);
+      console.error("Firebase Google login error: ", error);
       throw error;
+    }
+  };
+
+  const registerWithEmail = async (email, password, displayName) => {
+    try {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(result.user, { displayName });
+      
+      const updatedUser = {
+        uid: result.user.uid,
+        displayName: displayName,
+        email: result.user.email,
+        photoURL: result.user.photoURL || "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
+      };
+      
+      setCurrentUser(updatedUser);
+      
+      // Auto enroll in biometrics after successful registration
+      localStorage.setItem('hasBiometric', 'true');
+      localStorage.setItem('biometricUser', JSON.stringify(updatedUser));
+      
+      return updatedUser;
+    } catch (error) {
+      console.error("Firebase registration error: ", error);
+      throw error;
+    }
+  };
+
+  const loginWithEmail = async (email, password) => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      setCurrentUser(result.user);
+      
+      // Auto enroll in biometrics after successful login
+      localStorage.setItem('hasBiometric', 'true');
+      localStorage.setItem('biometricUser', JSON.stringify({
+        uid: result.user.uid,
+        displayName: result.user.displayName || result.user.email,
+        email: result.user.email,
+        photoURL: result.user.photoURL || "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
+      }));
+      
+      return result.user;
+    } catch (error) {
+      console.error("Firebase email login error: ", error);
+      throw error;
+    }
+  };
+
+  const loginWithBiometric = async () => {
+    const hasBiometric = localStorage.getItem('hasBiometric');
+    const biometricUserStr = localStorage.getItem('biometricUser');
+    
+    if (hasBiometric === 'true' && biometricUserStr) {
+      const bioUser = JSON.parse(biometricUserStr);
+      setCurrentUser(bioUser);
+      return bioUser;
+    } else {
+      throw new Error("Biometrik belum diaktifkan. Silakan daftar atau login terlebih dahulu.");
     }
   };
 
@@ -42,9 +112,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // We can still use onAuthStateChanged for persistence, 
-    // but the mock user will be lost on hard reload unless we use localStorage.
-    // For this prototype, the mock user state is enough.
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
@@ -59,6 +126,9 @@ export const AuthProvider = ({ children }) => {
     currentUser,
     setCurrentUser,
     loginWithGoogle,
+    registerWithEmail,
+    loginWithEmail,
+    loginWithBiometric,
     logout,
     userProfile,
     setUserProfile,
