@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { auth, googleProvider } from './FirebaseConfig';
 import { 
   onAuthStateChanged, 
   signOut, 
-  signInWithPopup, 
+  signInWithRedirect,
+  getRedirectResult,
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   updateProfile 
@@ -28,21 +29,9 @@ export const AuthProvider = ({ children }) => {
 
   const loginWithGoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-      setCurrentUser(result.user);
-      
-      // Auto enroll in biometrics after a successful Google login
-      localStorage.setItem('hasBiometric', 'true');
-      localStorage.setItem('biometricUser', JSON.stringify({
-        uid: result.user.uid,
-        displayName: result.user.displayName || result.user.email,
-        email: result.user.email,
-        photoURL: result.user.photoURL || "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
-      }));
-      
-      return result.user;
+      await signInWithRedirect(auth, googleProvider);
     } catch (error) {
-      console.error("Firebase Google login error: ", error);
+      console.error("Firebase Google redirect error: ", error);
       throw error;
     }
   };
@@ -112,6 +101,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    // Process redirect result on load
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result && result.user) {
+          localStorage.setItem('hasBiometric', 'true');
+          localStorage.setItem('biometricUser', JSON.stringify({
+            uid: result.user.uid,
+            displayName: result.user.displayName || result.user.email,
+            email: result.user.email,
+            photoURL: result.user.photoURL || "https://lh3.googleusercontent.com/aida-public/AB6AXuCCSR6EDtppU69S19WIpW2-UZPoeTQe3tk62aiWFPuh7h5-o8BB8TWqoRc3BZ8btLvWD8X3b99gWaeZ-YC5fiaG6HZAr8Y3-318NeYl1837pvTvQESq3jwZ0oERryFcKFwG9fDgi_6ZlRTAqrFeac7cmcGVOaKoXI9l55Qnt4g_eVsbnX3zlYalyPs72Tgp4rv1ouXBooTboshjUVoTFFOBwsx4VGsY_Bz4rCf7i4RV_kxrZ7IKsi7QfsfTu4dX3covb9q38JrxEokd"
+          }));
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting redirect result:", error);
+      });
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
