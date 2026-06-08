@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { loginWithGoogle, loginWithEmail, registerWithEmail, loginWithBiometric } = useAuth();
+  const { currentUser, loginWithGoogle, loginWithEmail, registerWithEmail, loginWithBiometric } = useAuth();
   const [error, setError] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [email, setEmail] = useState("");
@@ -16,6 +16,12 @@ const Login = () => {
   const [showBiometricModal, setShowBiometricModal] = useState(false);
   const [biometricStatus, setBiometricStatus] = useState("");
   const [biometricError, setBiometricError] = useState(false);
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/dashboard');
+    }
+  }, [currentUser, navigate]);
 
   const handleLoginOrRegister = async (e) => {
     e.preventDefault();
