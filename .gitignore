@@ -26,3 +26,9 @@ dist-ssr
 # Antigravity CLI
 .antigravitycli
 
+# Environment variables
+.env
+.env.local
+.env.*
+
+
