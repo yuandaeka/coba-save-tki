@@ -53,7 +53,21 @@ const Login = () => {
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
-      setError("Gagal masuk dengan Google. Pastikan konfigurasi Firebase Anda benar.");
+      let errMsg = "Gagal masuk dengan Google.";
+      if (err.code) {
+        if (err.code === "auth/operation-not-allowed") {
+          errMsg += " (Error: Provider Google belum diaktifkan di Firebase Console -> Authentication -> Sign-in method)";
+        } else if (err.code === "auth/unauthorized-domain") {
+          errMsg += " (Error: Domain ini belum didaftarkan di Authorized Domains pada Firebase Console)";
+        } else if (err.code === "auth/popup-closed-by-user") {
+          errMsg += " (Error: Popup login ditutup sebelum proses masuk selesai)";
+        } else {
+          errMsg += ` (Firebase Error: ${err.code})`;
+        }
+      } else {
+        errMsg += ` (${err.message || "Pastikan konfigurasi Firebase Anda benar."})`;
+      }
+      setError(errMsg);
     }
   };
 
